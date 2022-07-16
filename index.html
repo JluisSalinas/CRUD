@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>CRUD</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
+
+
+</head>
+
+<body>
+    <h1> TIPOS DE ALCOHOL</h1>
+    <div class="container mb-4 text-center">
+        <div class="row">
+            <form>
+                <fieldset>
+                    <legend class="col-md-12"> NOMBRE COMPLETO </legend>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre Completo" />
+
+                    <br />
+                    <legend> CLASIFICACIÓN </legend>
+                    <input type="text" class="form-control" id="tipo" placeholder="Clasificación" />
+                    <br />
+
+                    <button type="button" class="btn btn-success" id="agre">Agregar Registro </button>
+                    <button type="button" class="btn btn-success" id="Actualizar">actualizar</button>
+                    
+
+
+                </fieldset>
+
+            </form>
+            <div class="container px-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <!-- SON LAS FILAS DE LA TABLA  -->
+                            <th scope="col">Nombre Completo</th>
+                            <th scope="col">Clasificación</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla">
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="crud.js"></script>
+</body>
+
+</html>
