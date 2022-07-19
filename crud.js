@@ -21,7 +21,7 @@ function datosTabla() {  // con esta funcion iteramos en los elemennto con (for.
             <td>${producto.nombre}</td> 
             <td>${producto.tipo}</td>
             <td>
-                <button type="button" class="btn btn-primary" id="${producto.tipo}">
+                <button type="button" class="btn btn-primary" id="${producto.nombre}">
                     Editar
                 </button>
             </td>
@@ -38,12 +38,16 @@ function datosTabla() {  // con esta funcion iteramos en los elemennto con (for.
        deleteButtons.forEach((button)=>{
        button.addEventListener('click', (evento)=>elimProduc(evento.target.id))
     })
-    let editButtons = Array.from(document.getElementsByClassName('btn btn-primary'))
-    editButtons.forEach((button)=>{
-    button.addEventListener('click', (evento)=>editProduc(evento.target.id))
-    })
 
     
+
+    let editButtons = Array.from(document.getElementsByClassName('btn btn-primary'))
+    editButtons.forEach((button)=>{
+    button.addEventListener('click', (evento)=>editProduct(evento.target.id))
+    })
+
+    actualizar.addEventListener('click', (event)=>updateProduct(event.target.name))
+
 }
 
 
@@ -65,8 +69,8 @@ function agreProd(){ //para que se agreguen productos a la lista crear una funci
     productos.push(producto) // se envia a la array (let=producto)
     localStorage.setItem("savegin",JSON.stringify(productos))    // para llevar inf al localstotage json.strinify(conviete todo a string string)
     datosTabla()
-    nombre.value= ''
-    tipo.value= ''
+    squareNombre.value= ''
+    squareTipo.value= ''
 } 
 
 
@@ -78,26 +82,30 @@ function elimProduc(nombre){
     datosTabla()
 
 }
-function rellenarInputs(id){
-    actualizar.setAttribute('elemento', id)
-    let productoEncontrada = producto.find((producto)=>producto.nombre === id)
-    nombre.value = productoEncontrada.nombre
-    tipo.value = productoEncontrada.tipo
+
+
+function updateProduct(nombre){
+    console.log(nombre)
+    productos.forEach(producto=>{
+        if(producto.nombre===nombre){
+            producto.nombre = squareNombre.value
+            producto.tipo = squareTipo.value
+       
+        }
+
+    })
+    localStorage.setItem("savegin",JSON.stringify(productos))
+
+    datosTabla()
+    squareNombre.value= ''
+    squareTipo.value= ''
     
 }
+function editProduct(id){
+    let productoUnico = productos.find(producto=>id==producto.nombre)
+    squareNombre.value=productoUnico.nombre
+    squareTipo.value=productoUnico.tipo
+    actualizar.name=id
 
-function editProduc(id){
-    productos.forEach(producto=>{
-        if(producto.nombre===id){
-            persona.nombre = nombre.value
-            persona.tipo = tipo.value
-            localStorage.setItem("savegin",JSON.stringify(productos)) 
-            
-            
-        }
-    })
-    datosTabla()
-    nombre.value= ''
-    tipo.value= ''
-    
+
 }
