@@ -77,14 +77,14 @@ function agreProd(){ //para que se agreguen productos a la lista crear una funci
 
 function elimProduc(nombre){    
     
-    productos = productos.filter((producto)=>producto.nombre!==nombre)
+    productos = productos.filter((producto)=>producto.nombre!==nombre)// SE FILTRA AL NOMBRE DEL PARAMETRO, SIE L PRODUCTO NIMBRE NO ES IGUAL AL PARAMETRO SE MANTIENE
     localStorage.setItem("savegin",JSON.stringify(productos)) 
     datosTabla()
 
 }
 
 
-function updateProduct(nombre){
+function updateProduct(nombre){// SE ITERA X CADA PROODUCTO, PARA PODER ENCONTRAR EL NOMBRE Y POSICIONARLO EN EL INPUT
     console.log(nombre)
     productos.forEach(producto=>{
         if(producto.nombre===nombre){
@@ -105,7 +105,7 @@ function editProduct(id){
     let productoUnico = productos.find(producto=>id==producto.nombre)
     squareNombre.value=productoUnico.nombre
     squareTipo.value=productoUnico.tipo
-    actualizar.name=id
+    actualizar.name=id // DATO QUE LINKEA EVENTO DEL BOTON ACTULIZAR, PARA PODER ITERAR SOBRE LOS PRODUCTOS
 
 
 }
