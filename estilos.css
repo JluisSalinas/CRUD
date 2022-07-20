@@ -1,8 +1,20 @@
 body{
+	font-family: 'Coming Soon', cursive;
 	background: rgb(9, 0, 0);
-	width:715px;
+	width: 100%;
 	margin:0 auto;
 }
+
+
+.collapse{
+	display: flex;
+	justify-content: space-evenly;
+    width: 100%;
+    height: 50px;
+    background-color: #198754;    
+    justify-content: flex-start;
+}
+
 
 h1{
 	text-align:center;
@@ -14,6 +26,16 @@ legend{
 	color: rgb(1, 6, 10);
 
 }
+legend{
+	color: white;
+}
+
+fieldset{
+	padding-left: 180px;
+	width: 80%;
+	
+}
+
 
 h3{
 	text-align:center;
